@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5880982356651883125}
   - component: {fileID: 2467692248443524109}
   - component: {fileID: 9048513498937863746}
+  - component: {fileID: 7759294297774783054}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -86,32 +87,14 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0051020402
-        value: 0.5702651
+        time: 0
+        value: 0.7820511
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.46452183
-        value: 0.5536735
-        inSlope: 0.030232262
-        outSlope: 0.030232262
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.9744979
-        value: 0.5641008
-        inSlope: 0.26921698
-        outSlope: 0.26921698
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.5602662
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -148,7 +131,7 @@ LineRenderer:
     numCornerVertices: 90
     numCapVertices: 90
     alignment: 0
-    textureMode: 4
+    textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
@@ -169,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 5880982356651883125}
+  _collider: {fileID: 9048513498937863746}
 --- !u!68 &9048513498937863746
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -210,3 +194,30 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!50 &7759294297774783054
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212947686904739818}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
