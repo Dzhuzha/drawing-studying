@@ -37,9 +37,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MiniGameContent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuidePoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/SpellChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuideLine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/LineGenerator.cs" />
       </list>
     </option>

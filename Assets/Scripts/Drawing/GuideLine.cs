@@ -14,13 +14,7 @@ public class GuideLine : MonoBehaviour
     private Line _currentLine = null;
     private const float GUIDE_POINT_GIZMO_RADIUS = 0.3f;
 
-    public void SubscribeToLine(Line line)
-    {
-        _currentLine = line;
-        _currentLine.PointReached += CheckReachedPoint;
-    }
-        
-    private void Awake() // todo StateMachine аби рейс кондішн попередити?
+    private void Start() // todo StateMachine аби рейс кондішн попередити? Awake => Start було
     {
         _guidePoints = GetComponentsInChildren<GuidePoint>().ToList();
 
@@ -35,9 +29,10 @@ public class GuideLine : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach (GuidePoint guide in _guidePoints)
+        foreach (GuidePoint guidePoint in _guidePoints)
         {
-            guide.PlayAnimation();
+            guidePoint.PlayAnimation();
+            guidePoint.PointReached += CheckReachedPoint;
         }
     }
 
@@ -55,12 +50,9 @@ public class GuideLine : MonoBehaviour
             {
                 FinishLine();
             }
-
-            Debug.LogWarning($"reached {reachedPoint} next point {nextPointIndex}");
         }
         else
         {
-            Debug.LogWarning("Урааааа всі поінти досягнуті");
             ResetProgress();
         }
     }
@@ -68,13 +60,15 @@ public class GuideLine : MonoBehaviour
     private void ResetProgress()
     {
         _nextGoalPoint = _guidePoints[0];
-      //  _currentLine.PointReached -= CheckReachedPoint;
-     //   Destroy(_currentLine);
     }
 
     private void FinishLine()
     {
-        _currentLine.PointReached -= CheckReachedPoint;
+        foreach (GuidePoint guidePoint in _guidePoints)
+        {
+            guidePoint.PointReached -= CheckReachedPoint;
+        }
+        
         LineFinished?.Invoke();
     }
 

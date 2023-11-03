@@ -4,11 +4,21 @@ public class LineGenerator : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private Line _line;
+    [SerializeField] private SpellChecker _spellChecker;
 
     private Line _currentLine;
     private bool _isUponDrawSymbol;
     private DrawState _currentState;
-    
+
+    private void OnEnable()
+    {
+        _spellChecker.LineCompleted += FinishDrawing;
+    }
+
+    private void OnDisable()
+    {
+        _spellChecker.LineCompleted -= FinishDrawing;
+    }
 
     private void Update()
     {
@@ -27,9 +37,7 @@ public class LineGenerator : MonoBehaviour
                 break;
             case DrawState.Drawing:
                 Draw();
-                if (!_isUponDrawSymbol) InterruptDrawing();
-                if (Input.GetMouseButtonUp(0)) 
-                    _currentState = DrawState.Interrupted;
+                if (!_isUponDrawSymbol || Input.GetMouseButtonUp(0)) _currentState = DrawState.Interrupted;
                 break;
             case DrawState.Interrupted:
                 InterruptDrawing();
@@ -42,9 +50,15 @@ public class LineGenerator : MonoBehaviour
         }
     }
 
+    private void FinishDrawing()
+    {
+        _currentLine = null;
+        _currentState = DrawState.DrawUnavailable;
+    }
+
     private void InterruptDrawing()
     {
-        Destroy(_currentLine.gameObject);
+        if (_currentLine != null) Destroy(_currentLine.gameObject);
         _currentLine = null;
         _currentState = DrawState.DrawUnavailable;
     }
@@ -65,7 +79,7 @@ public class LineGenerator : MonoBehaviour
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
-        
+
         return _isUponDrawSymbol = hit.collider != null && hit.collider.TryGetComponent(out SpellChecker spellChecker);
     }
 

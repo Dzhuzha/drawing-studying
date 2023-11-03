@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2560049330263347716}
   - component: {fileID: 251662670020042101}
   - component: {fileID: 1196100947677937812}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GuidePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

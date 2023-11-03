@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpellChecker : MonoBehaviour
 {
+    public event Action LineCompleted;
+    
     [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
 
     private GuideLine _activeGuideLine = null;
@@ -23,6 +26,7 @@ public class SpellChecker : MonoBehaviour
     {
         _activeGuideLine.LineFinished -= SetupNextGuideline;
         _activeGuideLine.gameObject.SetActive(false);
+        LineCompleted?.Invoke();
 
         int nextGuidelineIndex = _guideLines.IndexOf(_activeGuideLine) + 1;
         
@@ -34,10 +38,5 @@ public class SpellChecker : MonoBehaviour
         {
             Debug.Log("LEVEL FINISHED!!!");
         }
-    }
-
-    public void RegisterLine(Line line)
-    {
-        _activeGuideLine.SubscribeToLine(line);
     }
 }

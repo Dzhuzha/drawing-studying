@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class GuidePoint : MonoBehaviour
 {
+    public event Action<GuidePoint> PointReached;
+    
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Sprite _defaultPointSprite;
     [SerializeField] private Sprite _finalPointSprite;
@@ -42,7 +45,7 @@ public class GuidePoint : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Line line))
         {
-            Debug.Log($"checked {gameObject.name}");
+            PointReached?.Invoke(this);
         }
     }
 }

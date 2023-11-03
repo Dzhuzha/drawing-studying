@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class Line : MonoBehaviour
 {
-    public event Action<GuidePoint> PointReached;
-
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private EdgeCollider2D _collider;
 
@@ -33,19 +30,6 @@ public class Line : MonoBehaviour
         if (Vector2.Distance(_linePoints.Last(), position) > 0.1f)
         {
             SetPoint(position);
-        }
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.TryGetComponent(out SpellChecker spellChecker))
-        {
-            spellChecker.RegisterLine(this);
-        }
-
-        if (other.gameObject.TryGetComponent(out GuidePoint guidePoint))
-        {
-            PointReached?.Invoke(guidePoint);
         }
     }
 }
