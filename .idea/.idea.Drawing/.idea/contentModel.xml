@@ -17,6 +17,7 @@
         </e>
         <e p="Materials" t="Include" />
         <e p="Prefabs" t="Include">
+          <e p="Core" t="Include" />
           <e p="Drawing" t="Include">
             <e p="Letters" t="Include" />
             <e p="Numbers" t="Include" />
@@ -26,6 +27,11 @@
         </e>
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="Core" t="Include">
+            <e p="LevelDataInitializer.cs" t="Include" />
+            <e p="PersistentData.cs" t="Include" />
+            <e p="SceneLoader.cs" t="Include" />
+          </e>
           <e p="Drawing" t="Include">
             <e p="GuideLine.cs" t="Include" />
             <e p="GuidePoint.cs" t="Include" />
@@ -34,7 +40,6 @@
             <e p="SpellChecker.cs" t="Include" />
           </e>
           <e p="GameContentInitializer.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
           <e p="LevelIcon.cs" t="Include" />
           <e p="MiniGameContent.cs" t="Include" />
           <e p="Utils" t="Include">

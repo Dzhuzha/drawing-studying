@@ -42,8 +42,6 @@ public class LineGenerator : MonoBehaviour
             case DrawState.Interrupted:
                 InterruptDrawing();
                 break;
-            case DrawState.Finished:
-                break;
             case DrawState.DrawUnavailable:
                 if (_isUponDrawSymbol) _currentState = DrawState.CouldDraw;
                 break;
@@ -88,7 +86,6 @@ public class LineGenerator : MonoBehaviour
         CouldDraw,
         Drawing,
         Interrupted,
-        Finished,
         DrawUnavailable
     }
 }

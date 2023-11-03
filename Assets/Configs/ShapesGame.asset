@@ -30,3 +30,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d2ec5b78de98ac345bcfdb778051f5dc, type: 3}
   - {fileID: 21300000, guid: d2ec5b78de98ac345bcfdb778051f5dc, type: 3}
   _gameType: 2
+  _tracePrefab: {fileID: 7136095902645883763, guid: 32ca272a2d24f0a42b2df0e7aa0308fe, type: 3}
+  _startPhrase: {fileID: 8300000, guid: 8a0a63b17a5e9b94483bcba8eeac0d1d, type: 3}
+  _motivationPhrases:
+  - {fileID: 8300000, guid: 05894e6011e3d4942b0e2278f321d3d7, type: 3}
+  - {fileID: 8300000, guid: 3ad07c5505c91a745b8288dbfe8824c7, type: 3}
+  - {fileID: 8300000, guid: 157a2befe2ebef74fbab95c3d01105ef, type: 3}

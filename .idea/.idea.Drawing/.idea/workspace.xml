@@ -14,33 +14,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B9311494-0D45-463D-A98E-2CB2DDA43765/7b/5a1f7271/EdgeCollider2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MiniGameContent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/SpellChecker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/GuidePoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameContentInitializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/LevelDataInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8C852C1-45A8-456B-A251-2BF23F96AB0B/11/0902bf4a/EventDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/LineGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelIcon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B9311494-0D45-463D-A98E-2CB2DDA43765/7b/5a1f7271/EdgeCollider2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MiniGameContent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/SpellChecker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/GuidePoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameContentInitializer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameContentInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelIcon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MouseVisualization.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/WayPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Waypoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/CameraAdjuster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MiniGameContent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuidePoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/SpellChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuideLine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuidePoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/LineGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelIcon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameContentInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/PersistentData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/LevelDataInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MiniGameContent.cs" />
       </list>
     </option>
   </component>

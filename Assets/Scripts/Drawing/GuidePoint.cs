@@ -16,12 +16,9 @@ public class GuidePoint : MonoBehaviour
     [SerializeField] private float _finalPointRadius;
 
     private const string APPEARANCE_ANIMATION = "GuidePointAnimation";
-    private bool _isFinishPoint;
 
     public void Init(bool finishPoint)
     {
-        _isFinishPoint = finishPoint;
-
         if (finishPoint)
         {
             _renderer.sprite = _finalPointSprite;
