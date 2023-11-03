@@ -15,6 +15,7 @@ public class Line : MonoBehaviour
     private void SetPoint(Vector2 point)
     {
         _linePoints.Add(point);
+        if (!_lineRenderer.enabled) _lineRenderer.enabled = true;
 
         _lineRenderer.positionCount = _linePoints.Count;
         _lineRenderer.SetPosition(_linePoints.Count - 1, point);

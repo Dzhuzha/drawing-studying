@@ -6,20 +6,75 @@ public class LineGenerator : MonoBehaviour
     [SerializeField] private Line _line;
 
     private Line _currentLine;
+    private bool _isUponDrawSymbol;
+    private DrawState _currentState;
     
+
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            if (_currentLine == null) _currentLine = Instantiate(_line, transform);
+        _isUponDrawSymbol = TryGetDrawSymbolUnderPointer();
+        ManageDrawingState();
+    }
 
-            Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-            _currentLine.UpdateLine(mousePosition);
-        }
-
-        if (Input.GetMouseButtonUp(0))
+    private void ManageDrawingState()
+    {
+        switch (_currentState)
         {
-            _currentLine = null;
+            case DrawState.CouldDraw:
+                if (!_isUponDrawSymbol) _currentState = DrawState.DrawUnavailable;
+                if (Input.GetMouseButton(0)) 
+                    StartDrawing();
+                break;
+            case DrawState.Drawing:
+                Draw();
+                if (!_isUponDrawSymbol) InterruptDrawing();
+                if (Input.GetMouseButtonUp(0)) 
+                    _currentState = DrawState.Interrupted;
+                break;
+            case DrawState.Interrupted:
+                InterruptDrawing();
+                break;
+            case DrawState.Finished:
+                break;
+            case DrawState.DrawUnavailable:
+                if (_isUponDrawSymbol) _currentState = DrawState.CouldDraw;
+                break;
         }
+    }
+
+    private void InterruptDrawing()
+    {
+        Destroy(_currentLine.gameObject);
+        _currentLine = null;
+        _currentState = DrawState.DrawUnavailable;
+    }
+
+    private void Draw()
+    {
+        Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+        _currentLine.UpdateLine(mousePosition);  
+    }
+
+    private void StartDrawing()
+    {
+        if (_currentLine == null) _currentLine = Instantiate(_line, transform, false);
+        _currentState = DrawState.Drawing;
+    }
+
+    private bool TryGetDrawSymbolUnderPointer()
+    {
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+        
+        return _isUponDrawSymbol = hit.collider != null && hit.collider.TryGetComponent(out SpellChecker spellChecker);
+    }
+
+    private enum DrawState
+    {
+        CouldDraw,
+        Drawing,
+        Interrupted,
+        Finished,
+        DrawUnavailable
     }
 }
