@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PersistentData : MonoBehaviour
 {
-    private MiniGameContent _miniGameContent;
-    private Color _chosenColor;
-    
+    public MiniGameContent MiniGameContent { get; private set; }
+    public Color ChosenColor { get; private set; }
+
     public void InitData(MiniGameContent miniGameContent, Color chosenColor)
     {
-        _miniGameContent = miniGameContent;
-        _chosenColor = chosenColor;
+        MiniGameContent = miniGameContent;
+        ChosenColor = chosenColor;
     }
 }

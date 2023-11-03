@@ -35,9 +35,11 @@
           <e p="Drawing" t="Include">
             <e p="GuideLine.cs" t="Include" />
             <e p="GuidePoint.cs" t="Include" />
+            <e p="LevelSetup.cs" t="Include" />
             <e p="Line.cs" t="Include" />
             <e p="LineGenerator.cs" t="Include" />
             <e p="SpellChecker.cs" t="Include" />
+            <e p="TraceSymbolPresenter.cs" t="Include" />
           </e>
           <e p="GameContentInitializer.cs" t="Include" />
           <e p="LevelIcon.cs" t="Include" />

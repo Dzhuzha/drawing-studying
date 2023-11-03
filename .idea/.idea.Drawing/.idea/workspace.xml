@@ -14,7 +14,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/TraceSymbolPresenter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Drawing/LevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/LevelDataInitializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8C852C1-45A8-456B-A251-2BF23F96AB0B/11/0902bf4a/EventDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -33,19 +35,22 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/WayPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Waypoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/CameraAdjuster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/SpellChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuideLine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/GuidePoint.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/LineGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelIcon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameContentInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/PersistentData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/LevelDataInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MiniGameContent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/TraceSymbolSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/PersistentData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/Line.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/LineGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/LevelSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/SpellChecker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Drawing/TraceSymbolPresenter.cs" />
       </list>
     </option>
   </component>
@@ -92,10 +97,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21076">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="21076" />
       <option name="selectedOptions">
         <set />
       </option>

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpellChecker : MonoBehaviour
 {
+    public event Action<SpellChecker> SymbolCompleted;
     public event Action LineCompleted;
-    
+
     [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
 
     private GuideLine _activeGuideLine = null;
-    
-    private void Start()
+
+    public void ActivateFirstGuideLine()
     {
         ActivateGuideline(0);
     }
@@ -29,14 +30,14 @@ public class SpellChecker : MonoBehaviour
         LineCompleted?.Invoke();
 
         int nextGuidelineIndex = _guideLines.IndexOf(_activeGuideLine) + 1;
-        
+
         if (nextGuidelineIndex < _guideLines.Count)
         {
             ActivateGuideline(nextGuidelineIndex);
         }
         else
         {
-            Debug.Log("LEVEL FINISHED!!!");
+            SymbolCompleted?.Invoke(this);
         }
     }
 }

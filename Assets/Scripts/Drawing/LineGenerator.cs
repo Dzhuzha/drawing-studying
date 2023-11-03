@@ -10,9 +10,16 @@ public class LineGenerator : MonoBehaviour
     private bool _isUponDrawSymbol;
     private DrawState _currentState;
 
+    public void Init(SpellChecker spellChecker, Color colorToDraw)
+    {
+        _line.SetColor(colorToDraw);
+        _spellChecker = spellChecker;
+        _spellChecker.LineCompleted += FinishDrawing;
+    }
+    
     private void OnEnable()
     {
-        _spellChecker.LineCompleted += FinishDrawing;
+        
     }
 
     private void OnDisable()
@@ -22,6 +29,8 @@ public class LineGenerator : MonoBehaviour
 
     private void Update()
     {
+        if (_spellChecker == null) return;
+
         _isUponDrawSymbol = TryGetDrawSymbolUnderPointer();
         ManageDrawingState();
     }

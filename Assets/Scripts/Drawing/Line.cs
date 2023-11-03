@@ -9,16 +9,12 @@ public class Line : MonoBehaviour
 
     private List<Vector2> _linePoints = new List<Vector2>();
 
-    private void SetPoint(Vector2 point)
+    public void SetColor(Color drawColor)
     {
-        _linePoints.Add(point);
-        if (!_lineRenderer.enabled) _lineRenderer.enabled = true;
-
-        _lineRenderer.positionCount = _linePoints.Count;
-        _lineRenderer.SetPosition(_linePoints.Count - 1, point);
-        _collider.points = _linePoints.ToArray();
+        _lineRenderer.startColor = drawColor;
+        _lineRenderer.endColor = drawColor;
     }
-
+    
     public void UpdateLine(Vector2 position)
     {
         if (_linePoints.Count < 1)
@@ -31,5 +27,15 @@ public class Line : MonoBehaviour
         {
             SetPoint(position);
         }
+    }
+
+    private void SetPoint(Vector2 point)
+    {
+        _linePoints.Add(point);
+        if (!_lineRenderer.enabled) _lineRenderer.enabled = true;
+
+        _lineRenderer.positionCount = _linePoints.Count;
+        _lineRenderer.SetPosition(_linePoints.Count - 1, point);
+        _collider.points = _linePoints.ToArray();
     }
 }
