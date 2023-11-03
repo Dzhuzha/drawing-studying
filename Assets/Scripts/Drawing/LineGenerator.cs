@@ -16,13 +16,8 @@ public class LineGenerator : MonoBehaviour
         _spellChecker = spellChecker;
         _spellChecker.LineCompleted += FinishDrawing;
     }
-    
-    private void OnEnable()
-    {
-        
-    }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _spellChecker.LineCompleted -= FinishDrawing;
     }
