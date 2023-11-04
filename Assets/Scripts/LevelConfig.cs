@@ -11,6 +11,12 @@ public class LevelConfig : ScriptableObject
     public AudioClip StartPhrase  { get; private set; }
     public List<AudioClip> MotivationPhrases  { get; private set; }
 
+    [SerializeField] private float _timeToShowHint;
+    [SerializeField] private float _timeToRepeatRules;
+
+    public float TimeToShowHint => _timeToShowHint;
+    public float TimeToRepeatRules => _timeToRepeatRules;
+    
     public void InitLevel(MiniGameContent miniGameContent, Color chosenColor)
     {
         TracePrefab = miniGameContent.TracePrefab;

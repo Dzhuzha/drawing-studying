@@ -12,9 +12,7 @@ public class GamingSequenceController : MonoBehaviour
     [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private VoiceoverPlayer _voiceoverPlayer;
     [SerializeField] private HintPresenter _hintPresenter;
-
-    private float _timeToShowHint = 14f;
-    private float _timeToRepeatRules = 7f;
+    
     private float _rulesTimer;
     private float _hintTimer;
     
@@ -23,6 +21,7 @@ public class GamingSequenceController : MonoBehaviour
     private void Awake()
     {
         InitializeState();
+        _hintTimer = _levelConfig.TimeToShowHint;
     }
 
     private void InitializeState()
@@ -62,8 +61,8 @@ public class GamingSequenceController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            _rulesTimer = _timeToRepeatRules;
-            _hintTimer = _timeToShowHint;
+            _rulesTimer = _levelConfig.TimeToRepeatRules;
+            _hintTimer = _levelConfig.TimeToShowHint;
             _hintPresenter.HideHint();
         }
         else
@@ -74,13 +73,13 @@ public class GamingSequenceController : MonoBehaviour
         
         if (_rulesTimer < 0)
         {
-            _rulesTimer = _timeToRepeatRules;
+            _rulesTimer = _levelConfig.TimeToRepeatRules;
             _voiceoverPlayer.PlayLevelRulesPhrase();
         }
         
         if (_hintTimer < 0)
         {
-            _hintTimer = _timeToShowHint;
+            _hintTimer = _levelConfig.TimeToShowHint;
             _hintPresenter.ShowHint();
         }
     }
