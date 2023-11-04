@@ -13,6 +13,7 @@ public class LineGenerator : MonoBehaviour
     public void Init(SpellChecker spellChecker, Color colorToDraw)
     {
         _line.SetColor(colorToDraw);
+        _line.SetLineLayerIndex(3);
         _spellChecker = spellChecker;
         _spellChecker.LineCompleted += FinishDrawing;
     }
@@ -54,6 +55,7 @@ public class LineGenerator : MonoBehaviour
 
     private void FinishDrawing()
     {
+        _currentLine.SetLineLayerIndex(0);
         _currentLine = null;
         _currentState = DrawState.DrawUnavailable;
     }

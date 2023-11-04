@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpellChecker : MonoBehaviour
@@ -7,9 +8,17 @@ public class SpellChecker : MonoBehaviour
     public event Action<SpellChecker> SymbolCompleted;
     public event Action LineCompleted;
 
-    [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
+    [SerializeField] private List<GuideLine> _guideLines;
 
     private GuideLine _activeGuideLine = null;
+
+    public GuideLine ActiveGuideLine => _activeGuideLine;
+
+    private void Awake()
+    {
+        _guideLines = GetComponentsInChildren<GuideLine>().ToList();
+        _activeGuideLine = _guideLines[0];
+    }
 
     public void ActivateFirstGuideLine()
     {
@@ -18,8 +27,8 @@ public class SpellChecker : MonoBehaviour
 
     private void ActivateGuideline(int index)
     {
-        _guideLines[index].gameObject.SetActive(true);
         _activeGuideLine = _guideLines[index];
+        _guideLines[index].gameObject.SetActive(true);
         _activeGuideLine.LineFinished += SetupNextGuideline;
     }
 

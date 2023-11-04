@@ -11,22 +11,25 @@ public class GamingSequenceController : MonoBehaviour
     [SerializeField] private LevelLoader _levelLoader;
     [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private VoiceoverPlayer _voiceoverPlayer;
+    [SerializeField] private HintPresenter _hintPresenter;
 
+    private float _timeToShowHint = 14f;
     private float _timeToRepeatRules = 7f;
-    private float _timer;
+    private float _rulesTimer;
+    private float _hintTimer;
     
     public LevelState CurrentState { get; private set; } = LevelState.Initialization;
 
     private void Awake()
     {
         InitializeState();
-        _timer = _timeToRepeatRules;
     }
 
     private void InitializeState()
     {
         SpellChecker spellChecker = _traceSymbolPresenter.PlaceSymbolOnGamefield(_levelConfig.TracePrefab);
         _lineGenerator.Init(spellChecker, _levelConfig.ChosenColor);
+        _hintPresenter.Init(spellChecker);
         SelectNextLevel();
         spellChecker.SymbolCompleted += OnLevelComplete;
         _voiceoverPlayer.Init(_levelConfig.MotivationPhrases, _levelConfig.StartPhrase);
@@ -42,7 +45,6 @@ public class GamingSequenceController : MonoBehaviour
         {
             case LevelState.LevelPresentation:      
                 _traceSymbolPresenter.ActivateFirstGuideLine();
-                _voiceoverPlayer.PlayLevelRulesPhrase();
                 ChangeLevelState(LevelState.Game);
                 break;
             case LevelState.Game:
@@ -60,17 +62,26 @@ public class GamingSequenceController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            _timer = _timeToRepeatRules;
+            _rulesTimer = _timeToRepeatRules;
+            _hintTimer = _timeToShowHint;
+            _hintPresenter.HideHint();
         }
         else
         {
-            _timer -= Time.deltaTime;
+            _rulesTimer -= Time.deltaTime;
+            _hintTimer -= Time.deltaTime;
         }
         
-        if (_timer < 0)
+        if (_rulesTimer < 0)
         {
-            _timer = _timeToRepeatRules;
+            _rulesTimer = _timeToRepeatRules;
             _voiceoverPlayer.PlayLevelRulesPhrase();
+        }
+        
+        if (_hintTimer < 0)
+        {
+            _hintTimer = _timeToShowHint;
+            _hintPresenter.ShowHint();
         }
     }
 

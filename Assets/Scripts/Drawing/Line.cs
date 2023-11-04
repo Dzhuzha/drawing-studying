@@ -9,6 +9,11 @@ public class Line : MonoBehaviour
 
     private List<Vector2> _linePoints = new List<Vector2>();
 
+    public void SetLineLayerIndex(int index)
+    {
+        _lineRenderer.sortingOrder = index;
+    }
+    
     public void SetColor(Color drawColor)
     {
         _lineRenderer.startColor = drawColor;

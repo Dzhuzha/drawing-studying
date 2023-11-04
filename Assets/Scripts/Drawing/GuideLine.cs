@@ -13,6 +13,8 @@ public class GuideLine : MonoBehaviour
     private GuidePoint _nextGoalPoint = null;
     private Line _currentLine = null;
     private const float GUIDE_POINT_GIZMO_RADIUS = 0.3f;
+    
+    public int PointsCount => _guidePoints.Count;
 
     private void Start() // todo StateMachine аби рейс кондішн попередити? Awake => Start було
     {
@@ -86,12 +88,12 @@ public class GuideLine : MonoBehaviour
         }
     }
 
-    private Vector2 GetPosition(int index)
+    public Vector2 GetPosition(int index)
     {
         return transform.GetChild(index).position;
     }
 
-    private int GetNextIndex(int index)
+    public int GetNextIndex(int index)
     {
         int newIndex = index + 1;
         return newIndex < transform.childCount ? newIndex : 0;
