@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class TraceSymbolPresenter : MonoBehaviour
@@ -13,11 +12,13 @@ public class TraceSymbolPresenter : MonoBehaviour
         return _symbolToDraw;
     }
 
-    public IEnumerator ShowSymbol() 
+    public void ShowSymbol() 
     {
         _symbolToDraw.gameObject.SetActive(true);
+    }
 
-        yield return new WaitForSeconds(0.5f);
+    public void ActivateFirstGuideLine()
+    {
         _symbolToDraw.ActivateFirstGuideLine();
     }
 }
