@@ -10,6 +10,16 @@ public class LevelLoader : MonoBehaviour
 
     private SpellChecker _spellChecker;
 
+    public void SubscribeToLevelComplete(SpellChecker spellChecker)
+    {
+        spellChecker.SymbolCompleted += ReloadScene;
+    }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     private void Start()
     {
         PrepareNextLevelConfig();
@@ -25,16 +35,6 @@ public class LevelLoader : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == _levelConfig.HomeSceneIndex) return;
         _mainMenuButton.onClick.RemoveListener(() => LoadScene(_levelConfig.HomeSceneIndex));
-    }
-
-    public void SubscribeToLevelComplete(SpellChecker spellChecker)
-    {
-        spellChecker.SymbolCompleted += ReloadScene;
-    }
-
-    public void LoadScene(int index)
-    {
-        SceneManager.LoadScene(index);
     }
 
     private void ReloadScene(SpellChecker spellChecker)

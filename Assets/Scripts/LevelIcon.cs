@@ -11,6 +11,12 @@ public class LevelIcon : MonoBehaviour
 
     private LevelLoader _levelLoader;
 
+    public void Init(Sprite levelIcon, Color iconColor)
+    {
+        _image.sprite = levelIcon;
+        _image.color = iconColor;
+    }
+
     private void Start()
     {
         _button.onClick.AddListener(SendClickedLevelInfo);
@@ -24,11 +30,5 @@ public class LevelIcon : MonoBehaviour
     private void SendClickedLevelInfo()
     {
         LevelChosen?.Invoke(_image.color);
-    }
-
-    public void Init(Sprite levelIcon, Color iconColor)
-    {
-        _image.sprite = levelIcon;
-        _image.color = iconColor;
     }
 }

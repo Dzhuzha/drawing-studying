@@ -22,6 +22,7 @@ public class HintPresenter : MonoBehaviour
 
     private void Start()
     {
+        _hintTimer = _levelConfig.TimeToShowHint;
         _hint = Instantiate(_hint);
         _hint.SetActive(false);
     }

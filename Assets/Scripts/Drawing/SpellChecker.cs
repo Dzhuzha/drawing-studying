@@ -10,9 +10,16 @@ public class SpellChecker : MonoBehaviour
 
     [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
 
+    private const int FIRST_GUIDELINE_INDEX = 0;
+    
     public GuideLine ActiveGuideLine { get; private set; }
 
-    public void Init()
+    public void ActivateFirstGuideLine()
+    {
+        ActivateGuideline(FIRST_GUIDELINE_INDEX);
+    }
+
+    private void Start()
     {
         _guideLines = GetComponentsInChildren<GuideLine>().ToList();
 
@@ -20,11 +27,6 @@ public class SpellChecker : MonoBehaviour
         {
             guideLine.Init();
         }
-    }
-
-    public void ActivateFirstGuideLine()
-    {
-        ActivateGuideline(0);
     }
 
     private void ActivateGuideline(int index)

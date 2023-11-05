@@ -35,7 +35,7 @@ public class GuidePoint : MonoBehaviour
         }
     }
 
-    public void PlayAnimation()
+    private void OnEnable()
     {
         _animator.Play(APPEARANCE_ANIMATION);
     }

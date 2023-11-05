@@ -32,7 +32,6 @@ public class GuideLine : MonoBehaviour
     {
         foreach (GuidePoint guidePoint in _guidePoints)
         {
-            guidePoint.PlayAnimation();
             guidePoint.PointReached += CheckReachedPoint;
         }
     }

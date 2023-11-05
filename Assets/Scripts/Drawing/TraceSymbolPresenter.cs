@@ -17,26 +17,20 @@ public class TraceSymbolPresenter : MonoBehaviour
         CreateTraceSymbol(_levelConfig.TracePrefab);
         _hintPresenter.Init(_symbolToDraw);
         _lineGenerator.Init(_symbolToDraw);
+        
+        _voiceoverPlayer.RulesAnnounced += ActivateFirstGuideLine;
         _voiceoverPlayer.SubscribeToLevelComplete(_symbolToDraw);
         _levelLoader.SubscribeToLevelComplete(_symbolToDraw);
-        ShowSymbol();
     }
 
     private void CreateTraceSymbol(SpellChecker symbolPrefab)
     {
         _symbolToDraw = Instantiate(symbolPrefab, _spawnPosition, Quaternion.identity);
-        _symbolToDraw.Init();
-        _symbolToDraw.gameObject.SetActive(false);
-    }
-
-    private void ShowSymbol()
-    {
-        _symbolToDraw.gameObject.SetActive(true);
-        ActivateFirstGuideLine();
     }
 
     private void ActivateFirstGuideLine()
     {
+        _voiceoverPlayer.RulesAnnounced -= ActivateFirstGuideLine;
         _symbolToDraw.ActivateFirstGuideLine();
     }
 }

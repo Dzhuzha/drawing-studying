@@ -1,8 +1,13 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class VoiceoverPlayer : MonoBehaviour
 {
+    public event Action RulesAnnounced;
+    
     [SerializeField] private AudioSource _audioPlayer;
     [SerializeField] private LevelConfig _levelConfig;
 
@@ -42,12 +47,21 @@ public class VoiceoverPlayer : MonoBehaviour
         }
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        _rulesTimer = _levelConfig.TimeToRepeatRules;
         _firstPhraseSound = _levelConfig.StartPhrase;
         _motivationSounds = _levelConfig.MotivationPhrases;
-    }
+        _audioPlayer.PlayOneShot(_firstPhraseSound);
 
+        while (_audioPlayer.isPlaying)
+        {
+            yield return null;
+        }
+
+        RulesAnnounced?.Invoke();
+    }
+    
     private void PlayLevelRulesPhrase()
     {
         _audioPlayer.PlayOneShot(_firstPhraseSound);
