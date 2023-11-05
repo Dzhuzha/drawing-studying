@@ -5,7 +5,6 @@ public class HintPresenter : MonoBehaviour
 {
     [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private GameObject _hint;
-    [SerializeField] private float _hintSpeed;
 
     private const float DISTANCE_PRECISION = 0.01f;
     private const int FIRST_POINT_INDEX = 0;
@@ -13,6 +12,7 @@ public class HintPresenter : MonoBehaviour
     private SpellChecker _spellChecker;
     private Coroutine _pathHint;
     private int _currentPointIndex = FIRST_POINT_INDEX;
+    private float _hintSpeed;
     private float _hintTimer;
 
     public void Init(SpellChecker spellChecker)
@@ -23,6 +23,7 @@ public class HintPresenter : MonoBehaviour
     private void Start()
     {
         _hintTimer = _levelConfig.TimeToShowHint;
+        _hintSpeed = _levelConfig.TutorialMovementSpeed;
         _hint = Instantiate(_hint);
         _hint.SetActive(false);
     }

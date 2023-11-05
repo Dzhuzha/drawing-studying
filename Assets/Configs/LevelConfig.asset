@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874cbe633c6aaaa409190fdbe1200def, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
+  _homeSceneIndex: 0
   _timeToShowHint: 14
   _timeToRepeatRules: 7
+  _delayBetweenSceneReload: 1
+  _tutorialMovementSpeed: 3

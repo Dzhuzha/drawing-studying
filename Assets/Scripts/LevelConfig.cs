@@ -15,9 +15,11 @@ public class LevelConfig : ScriptableObject
     [SerializeField] private float _timeToShowHint;
     [SerializeField] private float _timeToRepeatRules;
     [SerializeField] private float _delayBetweenSceneReload;
+    [SerializeField] private float _tutorialMovementSpeed;
 
     public int HomeSceneIndex => _homeSceneIndex;
     public float DelayBetweenSceneReload =>  _delayBetweenSceneReload;
+    public float TutorialMovementSpeed =>  _tutorialMovementSpeed;
     public float TimeToShowHint => _timeToShowHint;
     public float TimeToRepeatRules => _timeToRepeatRules;
 
