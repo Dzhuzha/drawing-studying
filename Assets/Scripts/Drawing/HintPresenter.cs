@@ -3,51 +3,87 @@ using UnityEngine;
 
 public class HintPresenter : MonoBehaviour
 {
-    [SerializeField] private SpellChecker _spellChecker;
+    [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private GameObject _hint;
     [SerializeField] private float _hintSpeed;
 
+    private const float DISTANCE_PRECISION = 0.01f;
+    private const int FIRST_POINT_INDEX = 0;
+
+    private SpellChecker _spellChecker;
     private Coroutine _pathHint;
-    private int _currentPointIndex = 0;
+    private int _currentPointIndex = FIRST_POINT_INDEX;
+    private float _hintTimer;
 
     public void Init(SpellChecker spellChecker)
     {
         _spellChecker = spellChecker;
-        _hint = Instantiate(_hint);
-        _hint.SetActive(false);
-        _hint.transform.position = _spellChecker.ActiveGuideLine.GetPosition(_currentPointIndex);
     }
 
-    public void ShowHint()
+    private void Start()
+    {
+        _hint = Instantiate(_hint);
+        _hint.SetActive(false);
+    }
+
+    private void ShowHint()
     {
         _pathHint = StartCoroutine(GoThroughThePass());
     }
 
-    public void HideHint()
+    private void HideHint()
     {
         if (_pathHint == null) return;
-        
+
         StopCoroutine(_pathHint);
         _hint.SetActive(false);
         _pathHint = null;
     }
 
+    private void Update()
+    {
+        CheckPlayerActivity();
+    }
+
+    private void RunTimer()
+    {
+        if (Input.anyKey)
+        {
+            _hintTimer = _levelConfig.TimeToShowHint;
+            HideHint();
+        }
+        else
+        {
+            _hintTimer -= Time.deltaTime;
+        }
+    }
+
+    private void CheckPlayerActivity()
+    {
+        RunTimer();
+
+        if (_hintTimer > 0) return;
+
+        _hintTimer = _levelConfig.TimeToShowHint;
+        ShowHint();
+    }
+
     private IEnumerator GoThroughThePass()
     {
-        _currentPointIndex = 0;
+        _currentPointIndex = FIRST_POINT_INDEX;
         _hint.transform.position = _spellChecker.ActiveGuideLine.GetPosition(_currentPointIndex);
         _hint.SetActive(true);
 
         while (_currentPointIndex < _spellChecker.ActiveGuideLine.PointsCount)
         {
             Vector2 targetPosition = _spellChecker.ActiveGuideLine.GetPosition(_currentPointIndex);
-        
-            while (Vector2.Distance(_hint.transform.position, targetPosition) > 0.01f)
+
+            while (Vector2.Distance(_hint.transform.position, targetPosition) > DISTANCE_PRECISION)
             {
                 _hint.transform.position = Vector2.MoveTowards(_hint.transform.position, targetPosition, _hintSpeed * Time.deltaTime);
                 yield return null;
             }
-        
+
             _currentPointIndex++;
         }
 

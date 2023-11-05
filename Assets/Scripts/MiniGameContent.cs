@@ -11,8 +11,10 @@ public class MiniGameContent : ScriptableObject
     [SerializeField] private SpellChecker _tracePrefab;
     [SerializeField] private AudioClip _startPhrase;
     [SerializeField] private List<AudioClip> _motivationPhrases = new List<AudioClip>();
+    [SerializeField] private int _gameSceneIndex;
 
     public string Title => _title;
+    public int GameSceneIndex => _gameSceneIndex;
     public List<Color> Colors => _colors;
     public List<Sprite> LevelSprites => _levelSprites;
     public AudioClip StartPhrase => _startPhrase;

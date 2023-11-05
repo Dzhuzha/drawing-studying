@@ -5,10 +5,12 @@ using UnityEngine;
 public class GuidePoint : MonoBehaviour
 {
     public event Action<GuidePoint> PointReached;
-    
+
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Sprite _defaultPointSprite;
     [SerializeField] private Sprite _finalPointSprite;
+    [SerializeField] private CircleCollider2D _collider;
+    [SerializeField] private Animator _animator;
 
     [SerializeField] private float _defaultPointScale;
     [SerializeField] private float _finalPointScale;
@@ -23,19 +25,19 @@ public class GuidePoint : MonoBehaviour
         {
             _renderer.sprite = _finalPointSprite;
             transform.localScale = new Vector2(_finalPointScale, _finalPointScale);
-            GetComponent<CircleCollider2D>().radius = _finalPointRadius;
+            _collider.radius = _finalPointRadius;
         }
         else
         {
             _renderer.sprite = _defaultPointSprite;
             transform.localScale = new Vector2(_defaultPointScale, _defaultPointScale);
-            GetComponent<CircleCollider2D>().radius = _defaultPoint;
+            _collider.radius = _defaultPoint;
         }
     }
 
     public void PlayAnimation()
     {
-        GetComponent<Animator>().Play(APPEARANCE_ANIMATION);
+        _animator.Play(APPEARANCE_ANIMATION);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

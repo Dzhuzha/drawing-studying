@@ -1,16 +1,15 @@
-using System;
 using UnityEngine;
 using TMPro;
 
 public class GameContentInitializer : MonoBehaviour
 {
-    public event Action<MiniGameContent, Color> LevelTriggered;
-    
     [SerializeField] private MiniGameContent _miniGameContent;
     [SerializeField] private LevelIcon _levelIconPrefab;
     [SerializeField] private Transform _iconContainer;
     [SerializeField] private TMP_Text _titleLabel;
-    
+    [SerializeField] private LevelConfig _levelConfig;
+    [SerializeField] private LevelLoader _levelLoader;
+
     private void Start()
     {
         CreateGameIcons();
@@ -24,15 +23,21 @@ public class GameContentInitializer : MonoBehaviour
         for (int i = 0; i < _miniGameContent.LevelSprites.Count; i++)
         {
             LevelIcon newIcon = Instantiate(_levelIconPrefab, _iconContainer);
-            newIcon.Init(_miniGameContent.GameType, _miniGameContent.LevelSprites[i], _miniGameContent.Colors[i]);
-            newIcon.LevelChosen += OnLevelChosen;
+            newIcon.Init(_miniGameContent.LevelSprites[i], _miniGameContent.Colors[i]);
+            SubscribeToButton(newIcon);
         }
     }
 
-    private void OnLevelChosen(Color color)
+    private void OnLevelChosen(Color chosenColor)
     {
         UnsubscribeFromAllButtons();
-        LevelTriggered?.Invoke(_miniGameContent, color);
+        _levelConfig.InitLevel(_miniGameContent, chosenColor);
+        _levelLoader.LoadScene(_miniGameContent.GameSceneIndex);
+    }
+
+    private void SubscribeToButton(LevelIcon levelIcon)
+    {
+        levelIcon.LevelChosen += OnLevelChosen;
     }
 
     private void UnsubscribeFromAllButtons()

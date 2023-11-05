@@ -4,18 +4,27 @@ public class LineGenerator : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private Line _line;
-    [SerializeField] private SpellChecker _spellChecker;
+    [SerializeField] private PointerVisualizer _pointer;
+    [SerializeField] private LevelConfig _levelConfig;
 
+    private const int BAKED_LINE_INDEX = 0;
+    private const int DRAWING_LINE_INDEX = 3;
+
+    private SpellChecker _spellChecker;
     private Line _currentLine;
     private bool _isUponDrawSymbol;
     private DrawState _currentState;
 
-    public void Init(SpellChecker spellChecker, Color colorToDraw)
+    public void Init(SpellChecker spellChecker)
     {
-        _line.SetColor(colorToDraw);
-        _line.SetLineLayerIndex(3);
         _spellChecker = spellChecker;
         _spellChecker.LineCompleted += FinishDrawing;
+    }
+
+    private void Start()
+    {
+        _line.SetColor(_levelConfig.ChosenColor);
+        _line.SetLineLayerIndex(DRAWING_LINE_INDEX);
     }
 
     private void OnDestroy()
@@ -25,8 +34,6 @@ public class LineGenerator : MonoBehaviour
 
     private void Update()
     {
-        if (_spellChecker == null) return;
-
         _isUponDrawSymbol = TryGetDrawSymbolUnderPointer();
         ManageDrawingState();
     }
@@ -37,7 +44,7 @@ public class LineGenerator : MonoBehaviour
         {
             case DrawState.CouldDraw:
                 if (!_isUponDrawSymbol) _currentState = DrawState.DrawUnavailable;
-                if (Input.GetMouseButton(0)) 
+                if (Input.GetMouseButton(0))
                     StartDrawing();
                 break;
             case DrawState.Drawing:
@@ -55,9 +62,10 @@ public class LineGenerator : MonoBehaviour
 
     private void FinishDrawing()
     {
-        _currentLine.SetLineLayerIndex(0);
+        _currentLine.SetLineLayerIndex(BAKED_LINE_INDEX);
         _currentLine = null;
         _currentState = DrawState.DrawUnavailable;
+        _pointer.gameObject.SetActive(false);
     }
 
     private void InterruptDrawing()
@@ -65,17 +73,20 @@ public class LineGenerator : MonoBehaviour
         if (_currentLine != null) Destroy(_currentLine.gameObject);
         _currentLine = null;
         _currentState = DrawState.DrawUnavailable;
+        _pointer.gameObject.SetActive(false);
     }
 
     private void Draw()
     {
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        _currentLine.UpdateLine(mousePosition);  
+        _currentLine.UpdateLine(mousePosition);
+        _pointer.transform.position = mousePosition;
     }
 
     private void StartDrawing()
     {
         if (_currentLine == null) _currentLine = Instantiate(_line, transform, false);
+        _pointer.gameObject.SetActive(true);
         _currentState = DrawState.Drawing;
     }
 

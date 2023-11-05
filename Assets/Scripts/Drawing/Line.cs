@@ -7,19 +7,21 @@ public class Line : MonoBehaviour
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private EdgeCollider2D _collider;
 
+    private const float DISTANCE_PRECISION = 0.1f;
+    
     private List<Vector2> _linePoints = new List<Vector2>();
 
     public void SetLineLayerIndex(int index)
     {
         _lineRenderer.sortingOrder = index;
     }
-    
+
     public void SetColor(Color drawColor)
     {
         _lineRenderer.startColor = drawColor;
         _lineRenderer.endColor = drawColor;
     }
-    
+
     public void UpdateLine(Vector2 position)
     {
         if (_linePoints.Count < 1)
@@ -28,7 +30,7 @@ public class Line : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(_linePoints.Last(), position) > 0.1f)
+        if (Vector2.Distance(_linePoints.Last(), position) > DISTANCE_PRECISION)
         {
             SetPoint(position);
         }

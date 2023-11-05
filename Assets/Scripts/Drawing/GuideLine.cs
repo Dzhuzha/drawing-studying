@@ -6,17 +6,16 @@ using UnityEngine;
 public class GuideLine : MonoBehaviour
 {
     public event Action LineFinished;
-    
+
     [SerializeField] private List<GuidePoint> _guidePoints = new List<GuidePoint>();
     [SerializeField] private bool _isClosedCircle = false;
 
-    private GuidePoint _nextGoalPoint = null;
-    private Line _currentLine = null;
     private const float GUIDE_POINT_GIZMO_RADIUS = 0.3f;
-    
+    private GuidePoint _nextGoalPoint = null;
+
     public int PointsCount => _guidePoints.Count;
 
-    private void Start() // todo StateMachine аби рейс кондішн попередити? Awake => Start було
+    public void Init()
     {
         _guidePoints = GetComponentsInChildren<GuidePoint>().ToList();
 
@@ -70,8 +69,19 @@ public class GuideLine : MonoBehaviour
         {
             guidePoint.PointReached -= CheckReachedPoint;
         }
-        
+
         LineFinished?.Invoke();
+    }
+
+    public Vector2 GetPosition(int index)
+    {
+        return transform.GetChild(index).position;
+    }
+
+    private int GetNextIndex(int index)
+    {
+        int newIndex = index + 1;
+        return newIndex < transform.childCount ? newIndex : 0;
     }
 
     private void OnDrawGizmos()
@@ -86,16 +96,5 @@ public class GuideLine : MonoBehaviour
             Vector2 finishPosition = GetPosition(GetNextIndex(i));
             Gizmos.DrawLine(startPosition, finishPosition);
         }
-    }
-
-    public Vector2 GetPosition(int index)
-    {
-        return transform.GetChild(index).position;
-    }
-
-    public int GetNextIndex(int index)
-    {
-        int newIndex = index + 1;
-        return newIndex < transform.childCount ? newIndex : 0;
     }
 }

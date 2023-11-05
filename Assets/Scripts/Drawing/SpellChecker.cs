@@ -8,16 +8,18 @@ public class SpellChecker : MonoBehaviour
     public event Action<SpellChecker> SymbolCompleted;
     public event Action LineCompleted;
 
-    [SerializeField] private List<GuideLine> _guideLines;
+    [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
 
-    private GuideLine _activeGuideLine = null;
+    public GuideLine ActiveGuideLine { get; private set; }
 
-    public GuideLine ActiveGuideLine => _activeGuideLine;
-
-    private void Awake()
+    public void Init()
     {
         _guideLines = GetComponentsInChildren<GuideLine>().ToList();
-        _activeGuideLine = _guideLines[0];
+
+        foreach (var guideLine in _guideLines)
+        {
+            guideLine.Init();
+        }
     }
 
     public void ActivateFirstGuideLine()
@@ -27,18 +29,18 @@ public class SpellChecker : MonoBehaviour
 
     private void ActivateGuideline(int index)
     {
-        _activeGuideLine = _guideLines[index];
+        ActiveGuideLine = _guideLines[index];
         _guideLines[index].gameObject.SetActive(true);
-        _activeGuideLine.LineFinished += SetupNextGuideline;
+        ActiveGuideLine.LineFinished += SetupNextGuideline;
     }
 
     private void SetupNextGuideline()
     {
-        _activeGuideLine.LineFinished -= SetupNextGuideline;
-        _activeGuideLine.gameObject.SetActive(false);
+        ActiveGuideLine.LineFinished -= SetupNextGuideline;
+        ActiveGuideLine.gameObject.SetActive(false);
         LineCompleted?.Invoke();
 
-        int nextGuidelineIndex = _guideLines.IndexOf(_activeGuideLine) + 1;
+        int nextGuidelineIndex = _guideLines.IndexOf(ActiveGuideLine) + 1;
 
         if (nextGuidelineIndex < _guideLines.Count)
         {

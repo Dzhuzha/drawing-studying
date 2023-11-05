@@ -228,6 +228,8 @@ MonoBehaviour:
   _levelIconPrefab: {fileID: 6722683156956937381, guid: df35076792d988e4ca18a906977b08ab, type: 3}
   _iconContainer: {fileID: 3260497195611028052}
   _titleLabel: {fileID: 1635832814329553765}
+  _levelConfig: {fileID: 11400000, guid: c5f626b45fc0e1b4d8b8525cd10272a0, type: 2}
+  _levelLoader: {fileID: 0}
 --- !u!1001 &2179833769249309163
 PrefabInstance:
   m_ObjectHideFlags: 0

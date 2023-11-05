@@ -137,6 +137,8 @@ MonoBehaviour:
   _renderer: {fileID: 5654892193076522506}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 8793767374235544658}
+  _animator: {fileID: 8398845263986379707}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -299,6 +301,8 @@ MonoBehaviour:
   _renderer: {fileID: 5996385451433857738}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 2075642889882735973}
+  _animator: {fileID: 52895508195114208}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -461,6 +465,8 @@ MonoBehaviour:
   _renderer: {fileID: 8949813201584998994}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 712757001465824213}
+  _animator: {fileID: 5405155967537307560}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -623,6 +629,8 @@ MonoBehaviour:
   _renderer: {fileID: 2144389523091697239}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 7548033502042361722}
+  _animator: {fileID: 131805327616219936}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -785,6 +793,8 @@ MonoBehaviour:
   _renderer: {fileID: 3943417838807298640}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 5988546164692629932}
+  _animator: {fileID: 2174365104407833274}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -947,6 +957,8 @@ MonoBehaviour:
   _renderer: {fileID: 908481358834696811}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 5331317932827587045}
+  _animator: {fileID: 7512547809226800665}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -1161,6 +1173,8 @@ MonoBehaviour:
   _renderer: {fileID: 115195888279488682}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 5433899911848312428}
+  _animator: {fileID: 9090169703776143705}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -1323,6 +1337,8 @@ MonoBehaviour:
   _renderer: {fileID: 8787913845750077736}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 6113721261515887631}
+  _animator: {fileID: 8090417868538907140}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12

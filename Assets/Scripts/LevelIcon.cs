@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class LevelIcon : MonoBehaviour
 {
     public event Action<Color> LevelChosen;
-    
+
     [SerializeField] private Image _image;
     [SerializeField] private Button _button;
-    
-    private GameType _gameType;
+
+    private LevelLoader _levelLoader;
 
     private void Start()
     {
@@ -26,10 +26,9 @@ public class LevelIcon : MonoBehaviour
         LevelChosen?.Invoke(_image.color);
     }
 
-    public void Init(GameType gameType, Sprite levelIcon, Color iconColor)
+    public void Init(Sprite levelIcon, Color iconColor)
     {
         _image.sprite = levelIcon;
         _image.color = iconColor;
-        _gameType = gameType;
     }
 }

@@ -137,6 +137,8 @@ MonoBehaviour:
   _renderer: {fileID: 8783270903334543830}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 2560049330263347716}
+  _animator: {fileID: 1196100947677937812}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12

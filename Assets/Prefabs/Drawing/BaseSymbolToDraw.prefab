@@ -137,6 +137,8 @@ MonoBehaviour:
   _renderer: {fileID: 770707198780386886}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 4824282553062010592}
+  _animator: {fileID: 3834344254631537824}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -299,6 +301,8 @@ MonoBehaviour:
   _renderer: {fileID: 4871197360786283196}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 8222743456708250606}
+  _animator: {fileID: 3625688742200027436}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -461,6 +465,8 @@ MonoBehaviour:
   _renderer: {fileID: 5219282616628722399}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 8793829720184254132}
+  _animator: {fileID: 6384127684192895140}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -915,6 +921,8 @@ MonoBehaviour:
   _renderer: {fileID: 2121603744192468553}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 5059133778654106268}
+  _animator: {fileID: 8126179206881468185}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
@@ -1077,6 +1085,8 @@ MonoBehaviour:
   _renderer: {fileID: 3161693784908182918}
   _defaultPointSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _finalPointSprite: {fileID: 21300000, guid: afd15dc86dd7cd94bac0ab380b061834, type: 3}
+  _collider: {fileID: 5898291505196427967}
+  _animator: {fileID: 6236115246362297274}
   _defaultPointScale: 2
   _finalPointScale: 0.65
   _defaultPoint: 0.12
