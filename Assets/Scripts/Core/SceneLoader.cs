@@ -45,7 +45,7 @@ public class LevelLoader : MonoBehaviour
 
     private IEnumerator ChangeScene()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_levelConfig.DelayBetweenSceneReload);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

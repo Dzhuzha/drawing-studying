@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class VoiceoverPlayer : MonoBehaviour
 {
-    public event Action RulesAnnounced;
+    public event Action<VoiceoverPlayer> RulesAnnounced;
     
     [SerializeField] private AudioSource _audioPlayer;
     [SerializeField] private LevelConfig _levelConfig;
@@ -59,7 +59,7 @@ public class VoiceoverPlayer : MonoBehaviour
             yield return null;
         }
 
-        RulesAnnounced?.Invoke();
+        RulesAnnounced?.Invoke(this);
     }
     
     private void PlayLevelRulesPhrase()

@@ -11,12 +11,12 @@ public class SpellChecker : MonoBehaviour
     [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
 
     private const int FIRST_GUIDELINE_INDEX = 0;
-    
+
     public GuideLine ActiveGuideLine { get; private set; }
 
-    public void ActivateFirstGuideLine()
+    public void SubscribeToFirstRulesAnnouncement(VoiceoverPlayer voiceoverPlayer)
     {
-        ActivateGuideline(FIRST_GUIDELINE_INDEX);
+        voiceoverPlayer.RulesAnnounced += ActivateFirstGuideLine;
     }
 
     private void Start()
@@ -27,6 +27,12 @@ public class SpellChecker : MonoBehaviour
         {
             guideLine.Init();
         }
+    }
+
+    private void ActivateFirstGuideLine(VoiceoverPlayer voiceoverPlayer)
+    {
+        voiceoverPlayer.RulesAnnounced -= ActivateFirstGuideLine;
+        ActivateGuideline(FIRST_GUIDELINE_INDEX);
     }
 
     private void ActivateGuideline(int index)
