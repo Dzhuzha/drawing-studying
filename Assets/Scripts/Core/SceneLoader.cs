@@ -51,6 +51,7 @@ public class LevelLoader : MonoBehaviour
 
     private void PrepareNextLevelConfig()
     {
+        if (_levelConfig.Colors.Count < 1) return;
         int levelIndex = _levelConfig.Colors.IndexOf(_levelConfig.ChosenColor);
         int nextLevelIndex = (levelIndex + 1) % _levelConfig.Colors.Count;
         Color nextColor = _levelConfig.Colors[nextLevelIndex];

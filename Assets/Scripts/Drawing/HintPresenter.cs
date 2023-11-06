@@ -24,7 +24,7 @@ public class HintPresenter : MonoBehaviour
     {
         _hintTimer = _levelConfig.TimeToShowHint;
         _hintSpeed = _levelConfig.TutorialMovementSpeed;
-        _hint = Instantiate(_hint);
+        _hint = Instantiate(_hint, transform);
         _hint.SetActive(false);
     }
 
