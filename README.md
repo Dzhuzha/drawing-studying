@@ -20,6 +20,7 @@ After the las GuideLine complete and motivation phrase fired, level reloads with
 For more comfortable new TraceSymbol creation, there is some Gizmo visualisations of GuideLines and its order in Unity Editor.
 
 NOTES:
+
 To take a look on realization with Extenject without changing of current gameflow, please, use this branch https://github.com/Dzhuzha/drawing-studying/tree/feature/external-plugin-usage
 - Because the task scope is to check competencies of employee, and because of small project size and different thoughts about usage of external plugins and frameworks as Extenject or DOTWeen, this project does not contain it.
 But in my opinion, if we want to extend this project or it's content - using of some kind of DependencyInjection is a good decision. As well as more interactive animations, more animations with some unified approach of it's creation.
