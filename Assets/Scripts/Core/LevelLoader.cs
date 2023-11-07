@@ -20,11 +20,6 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    private void Start()
-    {
-        PrepareNextLevelConfig();
-    }
-
     private void OnEnable()
     {
         if (SceneManager.GetActiveScene().buildIndex == _levelConfig.HomeSceneIndex) return;
@@ -39,6 +34,7 @@ public class LevelLoader : MonoBehaviour
 
     private void ReloadScene(SpellChecker spellChecker)
     {
+        PrepareNextLevelConfig();
         spellChecker.SymbolCompleted -= ReloadScene;
         StartCoroutine(ChangeScene());
     }
