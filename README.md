@@ -23,6 +23,7 @@ For more comfortable new TraceSymbol creation, there is some Gizmo visualisation
 NOTES:
 - Because the task scope is to check competencies of employee, and because of small project size and different thoughts about usage of external plugins and frameworks as Extenject or DOTWeen, this project does not contain it.
 But in my opinion, if we want to extend this project or it's content - using of some kind of DependencyInjection is a good decision. As well as more interactive animations, more animations with some unified approach of it's creation.
+To take a look on realization with Extenject without changing of current gameflow, please, use this branch https://github.com/Dzhuzha/drawing-studying/tree/feature/external-plugin-usage
 - In the task materials there were not Background sprite for the menu scene, so I made similar one on my own, so final visualisation of background is a little bit different from the refference.
 - Test task require project to be compatible with Iphone 12 and Ipad4. I don't have MAC OS, so I built and test it on Android/Windows and with built in device Simulator.
 - Some statements in test task, as "loading of Trace symbol or loading of level icons" was a little bit unclear and confusing. So, as this elements is created dynamicaly, I understood it as loading, but for TraceSymbol was added some FadeOut effect.
