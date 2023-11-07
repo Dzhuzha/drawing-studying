@@ -1,19 +1,28 @@
 using UnityEngine;
+using Zenject;
 
 public class TraceSymbolCreator : MonoBehaviour
 {
-    [SerializeField] private LineGenerator _lineGenerator;
-    [SerializeField] private HintPresenter _hintPresenter;
-    [SerializeField] private VoiceoverPlayer _voiceoverPlayer;
-    [SerializeField] private LevelConfig _levelConfig;
-    [SerializeField] private LevelLoader _levelLoader;
-
-    private readonly Vector2 _spawnPosition = Vector2.zero;
+    private VoiceoverPlayer _voiceoverPlayer;
+    private HintPresenter _hintPresenter;
+    private LineGenerator _lineGenerator;
     private SpellChecker _symbolToDraw;
+    private LevelConfig _levelConfig;
+    private LevelLoader _levelLoader;
+
+    [Inject]
+    public void Construct(LevelConfig levelConfig, LevelLoader levelLoader, VoiceoverPlayer voiceoverPlayer, HintPresenter hintPresenter, LineGenerator lineGenerator)
+    {
+        _levelConfig = levelConfig;
+        _levelLoader = levelLoader;
+        _voiceoverPlayer = voiceoverPlayer;
+        _hintPresenter = hintPresenter;
+        _lineGenerator = lineGenerator;
+    }
 
     private void Start()
     {
-        CreateTraceSymbol(_levelConfig.TracePrefab);
+        _symbolToDraw = Instantiate(_levelConfig.TracePrefab);
         InitDependencies();
         ResolveSubscriptions();
     }
@@ -29,10 +38,5 @@ public class TraceSymbolCreator : MonoBehaviour
         _symbolToDraw.SubscribeToFirstRulesAnnouncement(_voiceoverPlayer);
         _voiceoverPlayer.SubscribeToLevelComplete(_symbolToDraw);
         _levelLoader.SubscribeToLevelComplete(_symbolToDraw);
-    }
-
-    private void CreateTraceSymbol(SpellChecker symbolPrefab)
-    {
-        _symbolToDraw = Instantiate(symbolPrefab, _spawnPosition, Quaternion.identity);
     }
 }

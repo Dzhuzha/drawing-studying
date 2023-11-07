@@ -10,7 +10,7 @@ public class CameraAdjuster : MonoBehaviour
 
     private void Start()
     {
-        bool isPhone = (float) Screen.width / Screen.height < PHONE_MAX_ASPECT;
-        _camera.orthographicSize = isPhone ? _projectionSizeForIPad4 : _projectionSize;
+        bool isTab = (float) Screen.width / Screen.height < PHONE_MAX_ASPECT;
+        _camera.orthographicSize = isTab ? _projectionSizeForIPad4 : _projectionSize;
     }
 }

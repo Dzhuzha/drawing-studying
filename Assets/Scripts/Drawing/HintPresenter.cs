@@ -1,15 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class HintPresenter : MonoBehaviour
 {
-    [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private GameObject _hint;
 
     private const float DISTANCE_PRECISION = 0.01f;
     private const int FIRST_POINT_INDEX = 0;
 
     private SpellChecker _spellChecker;
+    private LevelConfig _levelConfig;
     private Coroutine _pathHint;
     private int _currentPointIndex = FIRST_POINT_INDEX;
     private float _hintSpeed;
@@ -18,6 +19,12 @@ public class HintPresenter : MonoBehaviour
     public void Init(SpellChecker spellChecker)
     {
         _spellChecker = spellChecker;
+    }
+
+    [Inject]
+    public void Construct(LevelConfig levelConfig)
+    {
+        _levelConfig = levelConfig;
     }
 
     private void Start()

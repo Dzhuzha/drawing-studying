@@ -9,7 +9,7 @@ public class SpellChecker : MonoBehaviour
     public event Action LineCompleted;
 
     [SerializeField] private List<GuideLine> _guideLines = new List<GuideLine>();
-
+    
     private const int FIRST_GUIDELINE_INDEX = 0;
 
     public GuideLine ActiveGuideLine { get; private set; }

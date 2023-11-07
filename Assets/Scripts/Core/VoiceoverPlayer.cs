@@ -2,22 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 public class VoiceoverPlayer : MonoBehaviour
 {
     public event Action<VoiceoverPlayer> RulesAnnounced;
-    
+
     [SerializeField] private AudioSource _audioPlayer;
-    [SerializeField] private LevelConfig _levelConfig;
 
     private List<AudioClip> _motivationSounds = new List<AudioClip>();
     private AudioClip _firstPhraseSound;
+    private LevelConfig _levelConfig;
     private float _rulesTimer;
 
     public void SubscribeToLevelComplete(SpellChecker spellChecker)
     {
         spellChecker.SymbolCompleted += PlayRandomMotivationPhrase;
+    }
+
+    [Inject]
+    public void Construct(LevelConfig levelConfig)
+    {
+        _levelConfig = levelConfig;
     }
 
     private void Update()
@@ -61,7 +68,7 @@ public class VoiceoverPlayer : MonoBehaviour
 
         RulesAnnounced?.Invoke(this);
     }
-    
+
     private void PlayLevelRulesPhrase()
     {
         _audioPlayer.PlayOneShot(_firstPhraseSound);

@@ -9,8 +9,6 @@ public class LevelIcon : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Button _button;
 
-    private LevelLoader _levelLoader;
-
     public void Init(Sprite levelIcon, Color iconColor)
     {
         _image.sprite = levelIcon;

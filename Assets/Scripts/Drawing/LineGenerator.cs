@@ -1,16 +1,17 @@
 using UnityEngine;
+using Zenject;
 
 public class LineGenerator : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
     [SerializeField] private Line _line;
-    [SerializeField] private PointerVisualizer _pointer;
-    [SerializeField] private LevelConfig _levelConfig;
 
     private const int BAKED_LINE_INDEX = 0;
     private const int DRAWING_LINE_INDEX = 3;
 
     private SpellChecker _spellChecker;
+    private PointerVisualizer _pointer;
+    private LevelConfig _levelConfig;
+    private Camera _camera;
     private Line _currentLine;
     private bool _isUponDrawSymbol;
     private DrawState _currentState;
@@ -21,8 +22,16 @@ public class LineGenerator : MonoBehaviour
         _spellChecker.LineCompleted += FinishDrawing;
     }
 
+    [Inject]
+    public void Construct(LevelConfig levelConfig, PointerVisualizer pointer)
+    {
+        _levelConfig = levelConfig;
+        _pointer = pointer;
+    }
+
     private void Start()
     {
+        _camera = Camera.main;
         _line.SetColor(_levelConfig.ChosenColor);
         _line.SetLineLayerIndex(DRAWING_LINE_INDEX);
     }
