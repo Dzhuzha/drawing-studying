@@ -8,14 +8,29 @@ public class GameSceneInstaller : MonoInstaller
     [SerializeField] private VoiceoverPlayer _voiceOverPlayer;
     [SerializeField] private LineGenerator _lineGenerator;
     [SerializeField] private TraceSymbolCreator _traceSymbolCreator;
+    [SerializeField] private LevelConfig _levelConfig;
+    [SerializeField] private LevelLoader _levelLoader;
 
     public override void InstallBindings()
     {
+        BindLevelConfig();
+        CreateAndBindLevelLoader();
         BindPointerVisualizer();
         BindHintPresenter();
         BindLineGenerator();
         BindVoiceOverPlayer();
         BindTraceSymbolToDraw();
+    }
+    
+    private void CreateAndBindLevelLoader()
+    {
+        LevelLoader levelLoader = Container.InstantiatePrefabForComponent<LevelLoader>(_levelLoader);
+        Container.Bind<LevelLoader>().FromInstance(levelLoader).AsSingle();
+    }
+
+    private void BindLevelConfig()
+    {
+        Container.Bind<LevelConfig>().FromScriptableObject(_levelConfig).AsSingle();
     }
 
     private void BindTraceSymbolToDraw()

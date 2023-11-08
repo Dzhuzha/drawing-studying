@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class ProjectContextInstaller : MonoInstaller
+public class MenuSceneInstaller : MonoInstaller
 {
     [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private LevelLoader _levelLoader;

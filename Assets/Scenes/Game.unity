@@ -859,6 +859,8 @@ MonoBehaviour:
   _voiceOverPlayer: {fileID: 516483067805654733, guid: 8ff45fc4aecdc1649862edd95d94bc60, type: 3}
   _lineGenerator: {fileID: 292049718551534158, guid: a6b4be4db7ce6a740bdb79718792edb3, type: 3}
   _traceSymbolCreator: {fileID: 4397696244451879371, guid: 6a880300f4e129c41a3f03bb9866bcfe, type: 3}
+  _levelConfig: {fileID: 11400000, guid: c5f626b45fc0e1b4d8b8525cd10272a0, type: 2}
+  _levelLoader: {fileID: 1874319984278722422, guid: e65a0ffcf88365f48977e07dd8f53c11, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

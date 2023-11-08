@@ -26,8 +26,8 @@ public class LevelLoader : MonoBehaviour
 
     private void ReloadScene(SpellChecker spellChecker)
     {
-        spellChecker.SymbolCompleted -= ReloadScene;
         PrepareNextLevelConfig();
+        spellChecker.SymbolCompleted -= ReloadScene;
         StartCoroutine(ChangeScene());
     }
 
